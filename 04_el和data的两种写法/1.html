@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>04_el和data的两种写法</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../JS/vue.js"></script>
+</head>
+
+<body>
+    <!--准备一个容器-->
+    <div id="root">
+        <h1>hello, {{name}}</h1>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false; //设置为 false 以阻止 vue 在启动时生成生产提示。
+        
+        // const app = new Vue({
+        //     // 第一种写法
+        //     // el: '#root', 
+        //     data:{
+        //         name:'java'
+        //     }
+        // });
+        // console.log(app);
+        // // 第二种写法
+        // app.$mount('#root')
+        
+        const app = new Vue({
+            el: '#root',
+            // data的第一种写法
+            // data:{
+            //     name : 'java'
+            // }
+            
+            // data的第二种写法
+            // data: function(){}
+            data() {
+                console.log('@@@', this);
+                return {
+                    name: 'java',
+                };
+            },
+        });
+
+    </script>
+</body>
+
+</html>

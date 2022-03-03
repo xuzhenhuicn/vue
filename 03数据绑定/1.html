@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>数据绑定</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../JS/vue.js"></script>
+</head>
+
+<body>
+    <!--准备一个容器-->
+    <div id="root">
+        <!-- 普通写法 -->
+        <!-- 单向数据绑定: <input type="text" v-bind:value="name"> <br>
+        双向数据绑定: <input type="text" v-model:value="name"><br> -->
+
+        <!-- 简写 -->
+        <!-- 因为v-model默认收集的就是value -->
+        单向数据绑定: <input type="text" :value="name"> <br>
+        双向数据绑定: <input type="text" v-model="name"><br>
+        <!--以下代码错误，v-model只能用在表单/输入类元素如input label中-->
+        <h2 v-model:x="name"></h2>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false; //设置为 false 以阻止 vue 在启动时生成生产提示。
+
+        new Vue({
+            el: '#root', //指定当前vue实例服务的容器
+            data: { // data用于存储数据，供el指定的容器使用
+                name: 'java',
+            }
+        });
+    </script>
+</body>
+
+</html>
