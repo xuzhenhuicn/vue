@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>测试vue</title>
     <!-- 引入vue -->
     <script type="text/javascript" src="../JS/vue.js"></script>
 </head>
+
 <body>
     <!--准备一个容器-->
     <div id="root">
-        <h1>hello, {{name}}, {{address}}</h1><!--插值语法-->
+        <!--插值语法-->
+        <h1>hello, {{name}}</h1>
+
+        <hr />
+        <!--模板语法-->
+        <a v-bind:href="url">点击跳转链接1</a>
+        <a :href="url">点击跳转链接2</a>
     </div>
     <script type="text/javascript">
         Vue.config.productionTip = false; //设置为 false 以阻止 vue 在启动时生成生产提示。
 
         new Vue({
             el: '#root', //指定当前vue实例服务的容器
-            data:{ // data用于存储数据，供el指定的容器使用
-                name: '徐XX',
-                address:'珠海'
+            data: { // data用于存储数据，供el指定的容器使用
+                name: 'java',
+                school: {
+                    address: '珠海',
+                    url: 'https://www.baidu.com',
+                }
+
             }
         });
     </script>
 </body>
+
 </html>
